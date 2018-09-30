@@ -24,6 +24,7 @@ public class Test {
         String sampleRSController = "tracks.singlePlayer.advanced.sampleRS.Agent";
         String sampleRHEAController = "tracks.singlePlayer.advanced.sampleRHEA.Agent";
 		String sampleOLETSController = "tracks.singlePlayer.advanced.olets.Agent";
+		String myController = "tracks.singlePlayer.agent11510237.Agent";
 
 		//Load available games
 		String spGamesCollection =  "examples/all_games_sp.csv";
@@ -34,24 +35,27 @@ public class Test {
 		int seed = new Random().nextInt();
 
 		// Game and level to play
-		int gameIdx = 0;
-		int levelIdx = 0; // level names from 0 to 4 (game_lvlN.txt).
-		String gameName = games[gameIdx][1];
-		String game = games[gameIdx][0];
-		String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
+		int gameIdx = 4;
+		int levelIdx = 4; // level names from 0 to 4 (game_lvlN.txt).
+//		for( levelIdx = 0; levelIdx <= 4; levelIdx++ ) {
+//			for (int i = 0; i < 4; i++) {
+				String gameName = games[gameIdx][1];
+				String game = games[gameIdx][0];
+				String level1 = game.replace(gameName, gameName + "_lvl" + levelIdx);
 
-		String recordActionsFile = null;// "actions_" + games[gameIdx] + "_lvl"
-						// + levelIdx + "_" + seed + ".txt";
-						// where to record the actions
-						// executed. null if not to save.
+				String recordActionsFile = null;// "actions_" + games[gameIdx] + "_lvl"
+				// + levelIdx + "_" + seed + ".txt";
+				// where to record the actions
+				// executed. null if not to save.
 
-		// 1. This starts a game, in a level, played by a human.
+				// 1. This starts a game, in a level, played by a human.
 		ArcadeMachine.playOneGame(game, level1, recordActionsFile, seed);
 
-		// 2. This plays a game in a level by the controller.
-//		ArcadeMachine.runOneGame(game, level1, visuals, sampleRHEAController, recordActionsFile, seed, 0);
+				// 2. This plays a game in a level by the controller.
 
-
+//				ArcadeMachine.runOneGame(game, level1, true, myController, recordActionsFile, seed, 0);
+//			}
+//		}
 		// 3. This replays a game from an action file previously recorded
 	//	 String readActionsFile = recordActionsFile;
 	//	 ArcadeMachine.replayGame(game, level1, visuals, readActionsFile);
